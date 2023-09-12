@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model List<Service>
+@{
+    ViewData["Title"] = "ServiceDetails";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/UpConstruction/assets/img/breadcrumbs-bg.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+            <h2>Service Details</h2>
+        </div>
+    </div><!-- End Breadcrumbs -->
+</main>
+<!-- ======= Service Details Section ======= -->
+<section id="service-details" class="service-details">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4" style="text-align:center">
+
+            <div class="col-lg-12" style="text-align:center">
+                <img src="~/UpConstruction/assets/img/services.jpg" alt="" class="img-fluid services-img">
+                <h3>@ViewBag.name</h3>
+                <p>
+                    @ViewBag.desc
+                </p>
+                
+                
+            </div>
+
+        </div>
+
+    </div>
+</section> <!--End Service Details Section--> 

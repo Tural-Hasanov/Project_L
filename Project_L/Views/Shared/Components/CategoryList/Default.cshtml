@@ -1,0 +1,11 @@
+﻿@using EntityLayer.Concrete
+@model List<BlogCategory>
+<div class="sidebar-item categories">
+    <h3 class="sidebar-title">Xəbər Kateqoriyası</h3>
+    @foreach (var item in Model)
+    {
+    <ul class="mt-3">
+        <li><a href="/Blog/CategoryBlogList/@item.BlogCategoryID">@item.BlogCategoryName <span>(@item.Blogs.Count())</span></a></li>
+    </ul>
+    }
+</div><!-- End sidebar categories-->

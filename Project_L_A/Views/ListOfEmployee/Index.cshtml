@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model PagedList<AzfenEmployee>
+@{
+    ViewData["Title"] = "Index1";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="col-sm-12">
+    <form asp-action="Index" method="post">
+        <div class="input-group">
+            <input placeholder="Axtarış..." type="text" name="p" class="form-control form-control-sm"> <span class="input-group-append">
+                <button type="submit" class="btn btn-sm btn-primary">
+                    Axtar!
+                </button>
+            </span>
+        </div>
+    </form>
+</div>
+<br />
+<a href="/ListOfEmployee/AddEmployee" class="btn btn-outline-primary">Əlavə et</a>
+<div>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>№</th>
+            <th>S.A.A</th>
+            <th>Vəzifə</th>
+            <th>Detal</th>
+            <th>Dəyiş</th>
+            <th>Sil</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Badge</td>
+                <td>@item.SAA</td>
+                <td>@item.Position</td>
+                <td><a href="/ListofEmployee/Details/@item.EmployeeID" class="btn btn-info">Detal</a></td>
+                <td><a href="/ListofEmployee/Change/@item.EmployeeID" class="btn btn-success">Dəyiş</a></td>
+                <td><a href="/ListofEmployee/DeleteEmployee/@item.EmployeeID" class="btn btn-danger" onclick="return confirm('Silmək istədiyinizdən əminsizmi?')">Sil</a></td>
+            </tr>
+
+        }
+    </table>
+
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+
+

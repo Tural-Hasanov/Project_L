@@ -1,0 +1,61 @@
+﻿@using EntityLayer.Concrete
+@model List<EmployeeDetailsHelper>
+@{
+    ViewData["Title"] = "IndexWithPhoto";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Static Tables</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <strong><a href="/HumanResources/IndexWithPhoto">Şəkilli Siyah</a></strong>
+            </li>
+            <li class="breadcrumb-item active">
+                <a href="/HumanResources/Index">Siyahı</a>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4" >
+                <div class="contact-box">
+                    <a class="row" onclick="DoNav('/HumanResources/EmployeeInfo/@item.ID')">
+                        <div class="col-4">
+                            <div class="text-center">
+                                <img alt="image" class="rounded-circle m-t-xs img-fluid" src="@item.ImageUrl">
+                                <div class="m-t-xs font-bold">@item.Position </div>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <h3><strong>@item.FullName</strong></h3>
+                            <p><i class="fa fa-map-marker"></i> @item.Adress</p>
+                            <address style="font-size:15px">
+                                <strong>Badge</strong> @item.Badge<br>
+                                <strong>FIN:</strong> @item.UserName<br>
+                                <strong>Tabel №:</strong> @item.TabelNumber<br>
+                                <strong>Tel №:</strong> @item.PhoneNumber
+                            </address>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+
+<script>
+
+    function DoNav(url) {
+        document.location.href = url;
+    }
+</script>

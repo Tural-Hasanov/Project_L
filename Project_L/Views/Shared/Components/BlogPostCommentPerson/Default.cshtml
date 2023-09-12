@@ -1,0 +1,18 @@
+﻿@using EntityLayer.Concrete
+@model List<BlogComment>
+
+@foreach (var item in Model)
+{
+    <div id="comment-1" class="comment">
+        <div class="d-flex">
+            <div class="comment-img"><img src="@item.HrTeam.HrTeamImageUrl" alt=""></div>
+            <div>
+                <h5><a href="">@item.HrTeam.HrTeamSAA</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                <time datetime="2020-01-01">@item.BlogCommentDate.Date.ToString("dd MMM yyyy")</time>
+                <p>
+                    @item.BlogCommentDescription
+                </p>
+            </div>
+        </div>
+    </div><!-- End comment #1 -->
+}

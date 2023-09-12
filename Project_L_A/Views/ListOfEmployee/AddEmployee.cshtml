@@ -1,0 +1,207 @@
+﻿@using EntityLayer.Concrete
+@model AzfenEmployee
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+
+    @using (Html.BeginForm("AddEmployee", "ListOfEmployee", FormMethod.Post))
+    {
+
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Badge</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.Badge)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Full Name</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.SAA)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Position</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.Position)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Specialist Degree</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.SpecialistDegree)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Employment Start Date</i>
+                        </div>
+                        <div class="col-9 text-right">
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.EmploymentStartDate)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Resignation Date</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.ResignationDate)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Project Status</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.ProjectStatus)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Department</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.Department)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Position ENG</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.PositionEng)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Classification</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.Classification)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Personnel Code</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.PersonnelCode)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>LS/RE</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.LSRE)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Nationality</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.Nationality)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget style1 navy-bg">
+                    <div class="row vertical-align">
+                        <div class="col-3">
+                            <i>Gender</i>
+                        </div>
+                        <div class="col-9 text-right">
+
+                            <h2 class="font-bold">@Html.TextBoxFor(x => x.Gender)</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-success" onclick="return confirm('Dəyişiklik etməyə əminsinizmi?')">Əlavə Et</button>
+    }
+    <br />
+
+</div>
+

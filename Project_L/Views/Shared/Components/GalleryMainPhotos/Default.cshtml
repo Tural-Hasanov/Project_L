@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<GalleryMainSite>   
+ <!-- ======= Our Projects Section ======= -->
+<section id="projects" class="projects">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header" id="gallery">
+            <h2>Qalereya</h2>
+            <p>İş prosesində çəkilmiş ən yadda qalan fotoları təqdim edirik</p>
+        </div>
+
+        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+
+            <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">Ümumi</li>
+                <li data-filter=".filter-Qaynaq">Qaynaq</li>
+                <li data-filter=".filter-Quraşdırma">Quraşdırma</li>
+                <li data-filter=".filter-Boya">Boya</li>
+                <li data-filter=".filter-Elektrik">Elektrik</li>
+            </ul><!-- End Projects Filters -->
+
+            
+            <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 portfolio-item @item.GalleryImageFilter">
+                        <div class="portfolio-content h-100">
+                            <img src="@item.GalleryImageUrl" class="img-fluid" alt="" style="object-fit: fill;width:500px; height:250px">
+                            <div class="portfolio-info">
+                                <h4>Remodeling 1</h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                                <a href="@item.GalleryImageUrl" title="Remodeling 1" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                    </div><!-- End Projects Item -->
+                }
+                </div><!-- End Projects Container -->
+            
+        </div>
+
+    </div>
+</section><!-- End Our Projects Section -->

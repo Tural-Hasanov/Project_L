@@ -1,0 +1,123 @@
+﻿@using EntityLayer.Concrete
+@model List<UploadFiles>
+@{
+    ViewData["Title"] = "UploadFiles";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<body>
+
+    <div id="wrapper">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>File Yükləmək</h2>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> Profil Şəkilləri Siyahı</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Profil Şəkilləri Yüklə</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-stripped">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Image preview
+                                                    </th>
+                                                    <th>
+                                                        Image url
+                                                    </th>
+                                                    <th>
+                                                        Sort order
+                                                    </th>
+                                                    <th>
+                                                        Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+
+
+                                                    <tr>
+                                                        <td>
+                                                            <img style="width:100px;height:100px" src="@item.SqlUrl">
+                                                        </td>
+                                                          
+                                                        <td>
+                                                            <input type="text" class="form-control" disabled value="@item.SqlUrl">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" value="7">
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-white"><i class="fa fa-trash"></i> </button>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+
+                                    <div class="table-responsive">
+
+                                        <form action="UploadFiles" method="post" enctype="multipart/form-data">
+
+                                            <h1>Şəkil Yükləmək</h1>
+                                            <input type="file" name="PhotoUrl" />
+
+                                            <button> Yadda Saxla</button>
+                                        </form>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('.summernote').summernote();
+
+            $('.input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+        });</script>
+
+</body>
+
+
+

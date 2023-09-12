@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azfen B.M istifadəçi paneli</title>
+    <link rel="icon" href="/AzfenImages/064-azfen.png" type="image/x-icon">
+    <link href="/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/Admin/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <!-- FooTable -->
+    <link href="/Admin/css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="/Admin/css/animate.css" rel="stylesheet">
+    <link href="/Admin/css/style.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="/Admin/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+
+    <!-- Sweet Alert -->
+    <link href="/Admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+
+    <link href="/Admin/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+
+    <link href="css/plugins/summernote/summernote-bs4.css" rel="stylesheet">
+
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+</head>
+
+<body class="mini-navbar">
+
+    <div id="wrapper">
+
+        @await Component.InvokeAsync("SidebarInfo")
+
+        <div id="page-wrapper" class="gray-bg">
+            @await Component.InvokeAsync("HeaderInfo")
+
+
+            @RenderBody()
+
+            <div class="footer">
+                <div class="float-right">
+                    <strong>Date:</strong> @DateTime.Now.ToString("dd.MM.yyyy")<strong> Time: </strong> @DateTime.Now.ToString(" HH:mm")
+                </div>
+                <div>
+                    <strong>Copyright</strong>||<b>Tural Həsənov</b> AZFEN JV &copy; 2022-@DateTime.Now.Year
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="/Admin/js/jquery-3.1.1.min.js"></script>
+    <script src="/Admin/js/popper.min.js"></script>
+    <script src="/Admin/js/bootstrap.js"></script>
+    <script src="/Admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/Admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="/Admin/js/inspinia.js"></script>
+    <script src="/Admin/js/plugins/pace/pace.min.js"></script>
+
+    <!-- FooTable -->
+    <script src="/Admin/js/plugins/footable/footable.all.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.footable').footable();
+            $('.footable2').footable();
+
+        });
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    </script>
+
+    <!-- Toastr -->
+    <script src="/Admin/js/plugins/toastr/toastr.min.js"></script>
+    @RenderSection("scripts", false)
+    <!-- Sweet alert -->
+    <script src="/Admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+    @RenderSection("script1", false)
+
+
+    <!-- Peity -->
+    <script src="/Admin/js/plugins/peity/jquery.peity.min.js"></script>
+    <!-- iCheck -->
+    <script src="/Admin/js/plugins/iCheck/icheck.min.js"></script>
+    <!-- Peity -->
+    <script src="/Admin/js/demo/peity-demo.js"></script>
+    <!-- Jquery Validate -->
+    <script src="/Admin/js/plugins/validate/jquery.validate.min.js"></script>
+    <!-- Steps -->
+    <script src="/Admin/js/plugins/steps/jquery.steps.min.js"></script>
+    @RenderSection("script3", false)
+
+    <!-- SUMMERNOTE -->
+    <script src="js/plugins/summernote/summernote-bs4.js"></script>
+
+    <!-- Data picker -->
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+</body>
+
+</html>

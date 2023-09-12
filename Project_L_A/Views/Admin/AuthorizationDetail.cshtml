@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model AppUser
+@{
+    ViewData["Title"] = "AuthorizationDetail";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using (Html.BeginForm("AuthorizationDetail", "Admin", FormMethod.Post))
+{
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Name</th>
+            <th>Admin</th>
+            <th>Writer</th>
+            <th>Member</th>
+            <th>Moderator</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(x => x.NameSurname)</td>
+            <td>@Html.RadioButton("Authorization", 1)</td>
+            <td>@Html.RadioButton("Authorization", 2)</td>
+            <td>@Html.RadioButton("Authorization", 3)</td>
+            <td>@Html.RadioButton("Authorization", 4)</td>
+        </tr>
+
+
+    </table>
+    <button type="submit" class="btn btn-danger">Yadda saxla</button>
+    
+}
+
+

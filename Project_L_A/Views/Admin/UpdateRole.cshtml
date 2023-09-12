@@ -1,0 +1,15 @@
+﻿@using EntityLayer.Concrete
+@model UpdateRole
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateRole", "Admin", FormMethod.Post))
+{
+
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success" type="submit">Dəyiş</button>
+}
+

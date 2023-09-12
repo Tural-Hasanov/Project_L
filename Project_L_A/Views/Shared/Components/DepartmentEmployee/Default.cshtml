@@ -1,0 +1,14 @@
+﻿@model List<SameDepartment>
+<div class="ibox">
+    <div class="ibox-content">
+        <h3>Departament işçiləri</h3>
+        <div class="user-friends">
+
+            @foreach (var item in Model)
+            {
+                <a href="#"><img alt="image" class="rounded-circle" src="@item.DepartmentUrl"></a>
+            }
+
+        </div>
+    </div>
+</div>

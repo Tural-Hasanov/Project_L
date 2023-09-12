@@ -1,0 +1,118 @@
+﻿@using EntityLayer.Concrete
+@model List<Service>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section id="hero" class="hero">
+
+    <div class="info d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 data-aos="fade-down">AZFEN BİRGƏ MÜƏSSİSƏSİ<span><br />Xoş Gəlmisiniz</span></h2>
+                    <p data-aos="fade-up">BİRLİKDƏ İNAMLA GƏLƏCƏYƏ DOĞRU</p>
+                    <a data-aos="fade-up" data-aos-delay="200" href="#services" class="btn-get-started">ƏTRAFLI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item active" style="background-image: url(https://vergiler.az/media/2019/08/29/reesmi4.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(/UpConstruction/assets/img/hero-carousel/hero-carousel-2.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(/UpConstruction/assets/img/hero-carousel/hero-carousel-3.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(/UpConstruction/assets/img/hero-carousel/hero-carousel-4.jpg)"></div>
+        <div class="carousel-item" style="background-image: url(/UpConstruction/assets/img/hero-carousel/hero-carousel-5.jpg)"></div>
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+
+</section><!-- End Hero Section -->
+
+<main id="main">
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Xidmətlər</h2>
+                <p>Xidmətlərimizdən faydalanmağı tövsiyyə edirik</p>
+            </div>
+            <div class="row gy-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item  position-relative">
+                            <div class="icon">
+                                <i class="@item.ServiceIcon"></i>
+                            </div>
+                            <h3>@item.ServiceName</h3>
+                            <p>@item.ServiceDescription</p>
+                            <a href="/Main/ServiceDetails/@item.ServiceID" class="readmore stretched-link">Learn more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End Service Item -->
+                }
+            </div>
+        </div>
+    </section><!-- End Services Section -->
+    @await Component.InvokeAsync("GalleryMainPhotos")
+    <!-- ======= Alt Services Section ======= -->
+    <section id="alt-services" class="alt-services">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row justify-content-around gy-4">
+                <div class="col-lg-6 img-bg" style="background-image: url(/UpConstruction/assets/img/alt-services.jpg);" data-aos="zoom-in" data-aos-delay="100"></div>
+
+                <div class="col-lg-5 d-flex flex-column justify-content-center">
+                    <h3>AZFEN BİRGƏ MÜƏSSİSƏSİ rəhbərliyi tərəfindən muzdlu işçilərin təminatı haqqında</h3>
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+                        <i class="bi bi-easel flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Təhlükəsizlik təminatı</a></h4>
+                            <p>Təhlükəsizlik texnikası üzrə kollektiv operativ şəkildə işçilərin təhlükəsiz şəkildə işləməyinə birbaşa olaraq nəzarəti təşkil edir</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-patch-check flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Nəqliyyat təminatı</a></h4>
+                            <p>İş növbəsindən asılı olmaraq habelə bayram günlərində işə cəlb olunan işçilərin nəqliyyatla təmini fasiləsiz şəkildə həyata keçirilir</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-brightness-high flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Qida təminatı</a></h4>
+                            <p>İşçilərin yemeklə təminatı ISO 9001 proseduruna riayət olunaraq habelə iş növbəsindən asılı olmayaraq sutkanın təyin olunmuş saatlarında ləziz yeməklər tərəfimizdən işçilərə verilir</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bi bi-brightness-high flex-shrink-0"></i>
+                        <div>
+                            <h4><a href="" class="stretched-link">Tibbi-Sığorta təminatı </a></h4>
+                            <p>Həm şirkət rəhbərliyini həmdə işçiləri maraqlandıran ən əsas məsələlərdən biri olan Tibbi Sığorta təminatı Paşa Sığorta tərəfindən aparılır</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Alt Services Section -->
+    @await Component.InvokeAsync("CompanyNames")
+    @await Component.InvokeAsync("Last3BlogPost")
+
+</main><!-- End #main -->

@@ -1,0 +1,90 @@
+﻿@model EntityLayer.Concrete.MessageFromExternal
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/UpConstruction/assets/img/breadcrumbs-bg.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+            <h2>Əlaqə</h2>
+            <ol>
+                <li><a href="/Main/Index/">Ana Səhifə</a></li>
+                <li>Əlaqə</li>
+            </ol>
+        </div>
+    </div><!-- End Breadcrumbs -->
+</main><!-- End #main -->
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+
+
+        <div class="row gy-4">
+            <div class="col-lg-6">
+                <div class="info-item  d-flex flex-column justify-content-center align-items-center">
+                    <i class="bi bi-map"></i>
+                    <h3>Bizim Ünvanımız</h3>
+                    <p>@ViewBag.AboutAdress</p>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-item d-flex flex-column justify-content-center align-items-center">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Mail Ünvanımız</h3>
+                    <p>@ViewBag.AboutEmailAdress</p>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-item  d-flex flex-column justify-content-center align-items-center">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Əlaqə Nömrəmiz</h3>
+                    <p>@ViewBag.AboutPhoneNumber</p>
+                </div>
+            </div><!-- End Info Item -->
+
+        </div>
+
+        <div class="row gy-4 mt-1">
+
+            <div class="col-lg-6 ">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7236.049374773892!2d49.82450772031654!3d40.3116347076962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030793aa8eb2591%3A0x81afd84932c66ea8!2sATA%20Shipyard!5e0!3m2!1sen!2sus!4v1668851589079!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+                @*https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7236.049374773892!2d49.82450772031654!3d40.3116347076962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030793aa8eb2591%3A0x81afd84932c66ea8!2sATA%20Shipyard!5e0!3m2!1sen!2sus!4v1668851589079!5m2!1sen!2sus*@
+            </div><!-- End Google Maps -->
+
+            <div class="col-lg-6">
+                @using (@Html.BeginForm("SendMessageTo", "SendMessage", FormMethod.Post))
+                {
+                    <div class="row gy-4">
+                        <div class="col-lg-6 form-group">
+                            <input type="text" name="MessageFromExternalName" class="form-control" placeholder="Your Name" required>
+                            @Html.ValidationMessageFor(x => x.MessageFromExternalName)
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input type="email" class="form-control" name="MessageFromExternalEmail" placeholder="Your Email" required>
+                            @Html.ValidationMessageFor(x => x.MessageFromExternalEmail)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="MessageFromExternalSubject" placeholder="Subject" required>
+                        @Html.ValidationMessageFor(x => x.MessageFromExternalSubject)
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <textarea class="form-control" name="MessageFromExternalContent" rows="5" placeholder="Message" required></textarea>
+                        @Html.ValidationMessageFor(x => x.MessageFromExternalContent)
+                    </div>
+                    <div class="php-email-form"><button style="width:100%" type="submit">Send Message</button></div>
+                }
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->

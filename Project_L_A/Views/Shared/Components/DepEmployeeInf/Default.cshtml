@@ -1,0 +1,14 @@
+﻿@model List<EmployeeDetailsHelper>
+<div class="ibox">
+    <div class="ibox-content">
+        <h3>Departament işçiləri</h3>
+        <div class="user-friends">
+
+            @foreach (var item in Model)
+            {
+                <a href="/HumanResources/EmployeeInfo/@item.ID"><img alt="image" class="rounded-circle" src="@item.ImageUrl"></a>
+            }
+
+        </div>
+    </div>
+</div>

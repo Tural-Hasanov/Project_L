@@ -1,0 +1,123 @@
+﻿@using EntityLayer.Concrete
+@model List<EmployeeDetail>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Static Tables</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/HumanResources/IndexWithPhoto">Şəkilli Siyah</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong><a href="/HumanResources/Index">Siyahı</a></strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Ümumi Siyahı</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#" class="dropdown-item">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Data</th>
+                                <th>Badge</th>
+                                <th>Tabel №</th>
+                                <th>FİN</th>
+                                <th>SAA</th>
+                                <th>Departament</th>
+                                <th>Vəzifə</th>
+                                <th>İşə qəbul</th>
+                                <th>İşdən çıxış</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            
+                                <tr onclick="DoNav('/HumanResources/EmployeeInfo/@item.ID')">
+
+                                    <td><a href="/HumanResources/EmployeeInfo/@item.ID">@item.ID</a></td>
+                                    <td><span class="pie">0.52,1.041</span></td>
+                                    <td>@item.Badge</td>
+                                    <td>@item.TabelNumber</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.FullName</td>
+                                    <td>@item.EmployeeDepartment.DepartmentName</td>
+                                    <td>@item.Position</td>
+                                    <td>@item.EmploymentStartDate.Value.ToString("dd.MM.yyyy")</td>
+                                    <td>
+                                        @if (item.ResignationDate != null)
+                                        {
+                                            @item.ResignationDate.Value.ToString("dd.MM.yyyy")
+                                                                                }
+                                    </td>
+
+                                    <td class="text-navy"> <i class="fa fa-level-up"></i> 40% </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+
+    function DoNav(url) {
+        document.location.href = url;
+    }
+
+</script>
+
+
+
+
+

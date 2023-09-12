@@ -1,0 +1,12 @@
+﻿@model List<DocNameModel>
+<div class="ibox">
+    <div class="ibox-content">
+        <h3>Sənədlər</h3>
+        <ul class="list-unstyled file-list">
+            @foreach (var item in Model)
+            {
+                <li><a href="@item.FileName" target="_blank"><i class="fa fa-file"></i> @item.FileName</a></li>
+            }
+        </ul>
+    </div>
+</div>

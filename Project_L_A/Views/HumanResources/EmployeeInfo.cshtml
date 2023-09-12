@@ -1,0 +1,242 @@
+﻿@model List<EmployeeDetailsHelper>
+@{
+    ViewData["Title"] = "EmployeeInfo";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    @using (Html.BeginForm("VacationAction", "HumanResources", FormMethod.Post))
+    {
+        @foreach (var item in Model)
+        {
+            <div id="wrapper">
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row m-b-lg m-t-lg">
+                        <div class="col-md-6">
+                            <div class="profile-image">
+                                <img src="@item.ImageUrl" class="rounded-0 circle-border m-b-md" style="width:250px;height:250px" alt="profile">
+                            </div>
+                            <div class="profile-info">
+                                <div class="">
+                                    <div>
+                                        <h1 class="this" style="font-family:'Comic Sans MS';float:right">@item.DepartmentName</h1>
+                                        <h2 class="no-margins">
+                                            <b style="margin-left:150px">@item.FullName</b>
+                                        </h2>
+
+                                        <h4 style="margin-left:150px">@item.Position</h4>
+                                        <strong>
+                                            @item.Email
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <table class="table table-info">
+                                <!--table small m-b-xs-->
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h4><i class="fa fa-id-badge"></i> Badge: @item.Badge</h4>
+                                        </td>
+                                        <td>
+                                            <h4><i class="fa fa-id-card"></i> Fin: @item.UserName</h4>
+                                        </td>
+                                        <td>
+                                            <h4><i class="fa fa-id-card-o"></i> S/S nömrəsi: @item.InsuranceNumber</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4><i class="fa fa-list-ol"></i> Tabel nömrəsi: @item.TabelNumber</h4>
+                                        </td>
+                                        <td>
+                                            <h4><i class="fa fa-id-card"></i> Ş/V nömrəsi: @item.IdentitySerialNumber</h4>
+                                        </td>
+                                        <td>
+                                            <h4><i class="fa fa-phone"></i> Mobil nömrəsi: @item.PhoneNumber</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <td>
+                                                <h4><i class="fa fa-money"></i> Əmək haqqı: @item.Salary</h4>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            //style="color: transparent; text-shadow: 0 0 8px #000;"
+                                            <td>
+                                                <h4><i class="fa fa-money"></i> Əmək haqqı: <i class="fa fa-lock"></i></h4>
+                                            </td>
+
+                                        }
+
+                                        <td>
+                                            <h4><i class="fa fa-sign-in"></i> Qəbul tarixi: @item.EmploymentStartDate.Value.ToString("dd.MM.yyyy")</h4>
+                                        </td>
+                                        <td>
+                                            <h4><i class="fa fa-history"></i> Əmək stajı: @item.ExperienceYear il @item.ExperienceMonth ay @item.ExperienceDay gün</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h4><i class="fa fa-maxcdn"></i> Qalıq məzuniyyət: @item.BalanceVacation</h4>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="ibox">
+                                <div class="ibox-content">
+                                    <h3>Haqqında</h3>
+                                    <p><b>Adres:</b> @item.Adress</p>
+                                    <p><b>Təhsil:</b> @item.Education</p>
+                                </div>
+                            </div>
+                            @await Component.InvokeAsync("DepEmployeeInf", new { ID = ViewBag.IDE })
+                            @await Component.InvokeAsync("DocEmployeeInf", new { ID = ViewBag.IDE })
+                        </div>
+                        <div style="margin-left:15px">
+                            <button id="btn1" class="btn btn-primary dim btn-large-dim" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-maxcdn"></i></button>
+                            <button id="btn2" class="btn btn-primary dim btn-large-dim" type="button"><i class="fa fa-money"></i></button>
+                            <button id="btn3" class="btn btn-danger dim btn-large-dim" type="button"><i class="fa fa-sign-out"></i></button>
+                            <button id="btn4" class="btn btn-warning dim btn-large-dim" type="button"><i class="fa fa-edit"></i></button>
+                            <div id="elm1" style="color: red; display: block; text-align: center; font-family:'Comic Sans MS'; font-size:x-large"></div>
+
+
+
+
+
+
+
+
+
+
+                            <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content animated bounceInRight">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <i class="fa fa-maxcdn modal-icon"></i>
+                                            <h4 class="modal-title">Məzuniyyət</h4>
+                                            <small class="font-bold">@item.Position vəzifəsində çalışan @item.FullName əmək məzuniyyətinə çıxması üçün aşağıdakı boş xananı doldurun</small>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                <strong>Əmək Məcəlləsi məzuniyyət: </strong>
+                                                İşçilər vəzifəsindən (peşəsindən), əmək şəraitindən və əmək müqaviləsinin müddətindən asılı olmayaraq, bu Məcəllə ilə müəyyən edilmiş məzuniyyətlərdən istifadə etmək hüququna malikdirlər.
+                                                Əlavə iş yerində əvəzçiliklə işləyən işçilərin də bu Məcəllə ilə müəyyən edilmiş məzuniyyətlərdən istifadə etmək hüququ vardır.İşçilərin bu Məcəllə ilə müəyyən edilmiş məzuniyyət hüququ və ondan istifadə qaydaları məhdudlaşdırıla bilməz.
+                                                Məzuniyyətdə olduğu müddət ərzində işçinin iş yeri, vəzifəsi (peşəsi) və bu Məcəllədə nəzərdə tutulmuş hallarda orta əmək haqqı saxlanılır, habelə işəgötürənin təşəbbüsü ilə əmək müqaviləsinin pozulması və işçinin intizam məsuliyyətinə cəlb edilməsi yolverilməzdir. Bu müddət işçinin əmək stajına, həmçinin ixtisası üzrə stajına daxil edilir.
+                                                Əmək müqaviləsində, habelə kollektiv müqavilələrdə məzuniyyətdə olan işçilər üçün əlavə təminatların verilməsi nəzərdə tutula bilər.
+                                            </p>
+                                            <div class="form-group">
+                                                <label>Daxil edilə biləcək məzuniyyət günü: <strong>@item.BalanceVacation</strong></label>
+                                                <input class="form-control" name="vacday" required placeholder="Gün daxil edin">
+                                                <input class="form-control" type="date" name="vacstartdate" required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="hidden" name="ID" value="@item.ID" />
+                                            <button type="submit" class="btn btn-primary">Yadda Saxla</button>
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">Bağla</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+    }
+</body>
+</html>
+
+
+@section scripts
+{
+    <script>
+
+
+        var tx = document.querySelector(".this");
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeColor() {
+            tx.style.color = getRandomColor();
+        }
+
+        setInterval(changeColor, 1000);
+
+
+        //Mouse hover olanda text gorsetmek
+        $("#btn1").hover(
+            function () {
+                $("#elm1").text("Məzuniyyət");
+            },
+            function () {
+                $("#elm1").text("");
+            }
+
+        );
+        $("#btn2").hover(
+            function () {
+                $("#elm1").text("Məzuniyyət kompensasiyası");
+            },
+            function () {
+                $("#elm1").text("");
+            }
+
+        );
+        $("#btn3").hover(
+            function () {
+                $("#elm1").text("Çıxış");
+            },
+            function () {
+                $("#elm1").text("");
+            }
+
+        );
+        $("#btn4").hover(
+            function () {
+                $("#elm1").text("Dəyişiklik");
+            },
+            function () {
+                $("#elm1").text("");
+            }
+
+        );
+
+
+    </script>
+}
+

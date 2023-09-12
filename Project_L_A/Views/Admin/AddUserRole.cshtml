@@ -1,0 +1,15 @@
+﻿@using EntityLayer.Concrete
+@model AddRole
+@{
+    ViewData["Title"] = "AddUserRole";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddUserRole", "Admin", FormMethod.Post))
+{
+
+    @Html.TextBoxFor(x => x.RoleAdd, new { @class = "form-control" })
+    <br />
+    <button type="submit" class="btn btn-primary">Əlavə Et</button>
+}
+

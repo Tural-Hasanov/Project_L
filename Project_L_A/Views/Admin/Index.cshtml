@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>FullName</th>
+        <th>Email</th>
+        <th>Status</th>
+        @*<th>Authorization</th>*@
+        <th>Detail</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img class="rounded-circle" src="@item.ImageUrl" style="width:40px" /> @item.NameSurname</td>
+            <td>@item.NormalizedEmail</td>
+            @*<td class="project-status">
+                <span class="label label-primary"></span>
+            </td>*@
+            <td><a href="/Admin/AuthorizationDetail/@item.Id" class="btn btn-primary">Authorization</a></td>
+            <td><a href="/Admin/UserRoleAuthorizationDetail/@item.Id" class="btn btn-info">Detail</a></td>
+
+        </tr>
+    }
+</table>
+
