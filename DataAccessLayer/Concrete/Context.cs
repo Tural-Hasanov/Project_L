@@ -13,8 +13,8 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("server=Tural-Hasanov\\SQLExpress123; database=Project_L; integrated security=true;");
-            optionsBuilder.UseSqlServer("Data Source=SQL5110.site4now.net;Initial Catalog=db_a9d199_projectl;User Id=db_a9d199_projectl_admin;Password=tural123");
+            optionsBuilder.UseSqlServer("server=Tural-Hasanov\\SQLExpress123; database=Project_L; integrated security=true;");
+            //optionsBuilder.UseSqlServer("Data Source=SQL5110.site4now.net;Initial Catalog=db_a9d199_projectl;User Id=db_a9d199_projectl_admin;Password=tural123");
 
 
             //optionsBuilder.UseSqlServer("workstation id=Project_L.mssql.somee.com;packet size=4096;user id=scorp_SQLLogin_1;pwd=l6bjmjxoxd;data source=Project_L.mssql.somee.com;persist security info=False;initial catalog=Project_L;");
